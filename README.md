@@ -98,7 +98,7 @@ Type                | Standard                                                | 
 Resource Name       |                                                         | hyphen-separated, lower case                               | /users, /user-preferences
 Query Parameters    |                                                         | camelCase string (low 1st)                                 | ?sortBy=name&order=desc
 Headers             | HTTP 1.1                                                | Snake-Case (hyphen, 1st upper                              | Content-Type, If-Match
-Media Type          | HTTP 1.1                                                | application/vnd.hostname.{resourcetype}+json|xml;v=version | application/vnd.hostname.user+json;v=2.1
+Media Type          | HTTP 1.1                                                | application/vnd.hostname.{resourcetype}+json;v=version | application/vnd.hostname.user+json;v=2.1
 Date                | ISO 8601                                                | YYYY-MM-DD                                                 | 2015-11-14
 Date Time           | ISO 8601 (UTC)                                          | YYYY-MM-DDThh:mm:ssZ (Z for UTC, no other timezones)       | 2015-11-14T21:48:13Z
 Duration            | ISO 8601                                                | PnYnMnDTnHnMnS                                             | "P23DT23H" and "P4Y" are both acceptable duration representations as all values are optional and can be omitted if value is 0
