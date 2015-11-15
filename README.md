@@ -82,6 +82,7 @@ Use plural to represent collections.
 
 ```
 {domain}.api.hostname.com/resource-collection/{resource-id}/resource-collection/{resource-id}
+
 user.api.hostname.com/users/1234/profiles/52342
 user.api.hostname.com/users/1234/account
 ```
@@ -91,12 +92,20 @@ Do not include query params as part of resource identifier as they are optional 
 {domain}.api.hostname.com/resource-collection/{resource-id}/resource-collection/{resource-id}
 {domain}.api.hostname.com/resource-collection/{resource-id}
 ```
-#### URI Format
-Type                | Standard        | Format                       | Examples
-------------------- | --------------- | ---------------------------- | --------
-Resource Name       |                 | hyphen-separated, lower case | /users
-                                                                       /user-preferences
-Query Parameters    |                 | camelCase string (low 1st)   | ?sortBy=name&order=desc
-
-
+### Format
+Type                | Standard                                                | Format                                                     | Examples
+------------------- | ------------------------------------------------------- | --------------------------------------------------------   | --------
+Resource Name       |                                                         | hyphen-separated, lower case                               | /users, /user-preferences
+Query Parameters    |                                                         | camelCase string (low 1st)                                 | ?sortBy=name&order=desc
+Headers             | HTTP 1.1                                                | Snake-Case (hyphen, 1st upper                              | Content-Type, If-Match
+Media Type          | HTTP 1.1                                                | application/vnd.hostname.{resourcetype}+json|xml;v=version | application/vnd.hostname.user+json;v=2.1
+Date                | ISO 8601                                                | YYYY-MM-DD                                                 | 2015-11-14
+Date Time           | ISO 8601 (UTC)                                          | YYYY-MM-DDThh:mm:ssZ (Z for UTC, no other timezones)       | 2015-11-14T21:48:13Z
+Duration            | ISO 8601                                                | PnYnMnDTnHnMnS                                             | "P23DT23H" and "P4Y" are both acceptable duration representations as all values are optional and can be omitted if value is 0
+Currency Code       | ISO 4217                                                | 3 alpha (Caps)                                             | USD, EUR, CAD, AUD
+Currency Amount     |                                                         | Number                                                     | 45.99, 2003.56, 5000
+Country Code        | ISO 3166-1                                              | 2 alpha (Caps)                                             | US, CA, CH, KZ, UA
+Region Code         | ISO 3166-2                                              | CountryCode-RegionCode (2 alpha)                           | CA-ON, CA-AB, UA-71, US-CA
+Language Code       | ISO 6391 + ISO 6393 (for dialects not covered by 6391)  | 2 alpha or 3 alpha                                         | en, es, it, hi, zh, cmn (chinese mandarin), cjy (chinese jin)
+Airport Code        | IATA                                                    | 3 alpha (Caps)                                             | YYZ,LAX,AMS
 
