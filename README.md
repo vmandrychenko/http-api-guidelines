@@ -41,7 +41,7 @@ Couple of common ways to version APIs:
      * in the media type name
      * added as qualifier
 
-#### Use Media Type headers for resource version
+#### Use Media Type headers to represent resource version
 I think using Media type is the most appropriate way where version is added as qualifier.
 URL should contain resource location info only, while header represents the version.
 
