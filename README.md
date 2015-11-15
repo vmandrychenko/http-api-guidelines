@@ -252,6 +252,7 @@ Etags in combination with HTTP Cache Headers (e.g If-Match) should be used for O
 ### Security
 * APIs exposed to the world require Authentication and Authorization
 * APIs that contain security credentials and must be exposed over HTTPS
+
 ##### HTTP Basic
 Http Header: `Authorization`
 Http Header Value: Basic {base64 encoded username and password}
@@ -265,6 +266,9 @@ HTTP Header Example:
 ```
 Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 ```
+
+### Gzip Compression
+For the performance reason gzip compression is required to ensure payloads are transferred faster over the wire.
 
 
 
