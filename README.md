@@ -132,7 +132,7 @@ Airport Code        | IATA                                                    | 
   * Use 422 for valid JSON/XML but invalid semantic errors, like invalid airport code, currency code or invalid date precedence.
   * Use others appropriately as per HTTP spec
 * Use one of 500s to represent server error. Users should not retry requests with 500 responses.
-  * 502 - to represent failure in the upstream response (provider is down for example).
+  * 502 - to represent failure in the upstream response (if our service is consuming another service that is down).
   * Use other appropriately as per spec
 
 #### Error Response
