@@ -76,7 +76,7 @@ consists of more then 1 word.
 
 ### Resource names
 Resource names must be nouns (with some exceptions, like search, for example).
-Resource names should represent you business domain model.
+Resource names should represent your business domain model.
 
 Use plural to represent collections.
 
@@ -112,9 +112,31 @@ Airport Code        | IATA                                                    | 
 ### Request
 #### HTTP Methods
 * POST - create, can only be done on collection (/users)
+```
+POST /users
+POST /users/123/accounts
+POST /users/123/orders
+```
 * PUT/PATCH - update/partial update, can only be done on existing resource URI, idempotent
+```
+PUT /users/123
+PUT /users/123/orders/456
+```
 * GET - idempotent
+```
+GET /users/123
+GET /users
+GET /users?lastName=Smith&yearOfBirth=1970
+GET /users/123/orders/456
+GET /users/123/orders?createdStartDate=2014-05-14T13:00:00Z&createdEndDate=2014-05-14T18:00:00Z
+GET /users/123/orders
+```
 * DELETE - idempotent
+```
+DELETE /users/123
+DELETE /users/123/orders
+DELETE /users/123/orders/456
+```
 * OPTIONS - to see what methods are available on the resouces
 
 ### Response
