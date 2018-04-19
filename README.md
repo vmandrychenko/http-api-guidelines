@@ -236,12 +236,28 @@ use startXXX and endXXX query parameters
 
 
 ### Pagination
+
+#### Offset and limit 
+
+It has it's drawbacks: http://blog.vermorel.com/journal/2015/5/8/nearly-all-web-apis-get-paging-wrong.html):
+
 use offset and limit query parameters
 * offset = 0, limit = 10 is 0 - 9
 * offset = 10, limit = 10 is 10 - 19
 ```
 /users?offset=10&limit=10
 ```
+
+#### Continuation token
+
+use continuation token query parameter
+```
+/users?continuationToken=token
+
+```
+token would be a reference for the last record that was returned (this requires either a 2 way hash for the token 
+or some state on the server side).
+
 
 ### Sorting
 use sortBy and order query parameters
